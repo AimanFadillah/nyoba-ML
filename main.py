@@ -9,8 +9,9 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score,confusion_matrix,classification_report
 import matplotlib.pyplot as plt
+import joblib as jb
 
-model = RandomForestClassifier()
+model = LogisticRegression()
 le = LabelEncoder()
 scaler = MinMaxScaler()
 # >> Cara membaca dataset
@@ -90,7 +91,6 @@ dataset['Driver_Age'] = dataset['Driver_Age'].fillna(dataset['Driver_Age'].mean(
 dataset['Driver_Experience'] = dataset['Driver_Experience'].fillna(dataset['Driver_Experience'].mean())
 dataset["Accident"] = dataset["Accident"].fillna(0)
 
-dataset.dropna(inplace=True)
 dataset.drop_duplicates(inplace=True)
 
 dataset[['Traffic_Density']] = scaler.fit_transform(dataset[['Traffic_Density']])
@@ -105,27 +105,44 @@ dataset[['Accident_Severity']] = scaler.fit_transform(dataset[['Accident_Severit
 # TRAINING DATA dan TESTING DATA
 # ========================================
 
+# >> memisahkan antara fitur dan target atau bisa disebut input dan output
 x = dataset.drop('Accident', axis=1)
 y = dataset["Accident"]
 
+# >> memisahkan data menjadi data training dan data testing
 x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=0.2,random_state=42)
 
+# >> melatih model
 model.fit(x_train,y_train)
 
-y_pred = model.predict(x_test)
+# >> Memprediksi data testing
+# y_pred = model.predict(x_test)
 
 # >> Menghitung akurasi
-accuracy = accuracy_score(y_test, y_pred)
-print(f'Akurasi: {accuracy}')
+# accuracy = accuracy_score(y_test, y_pred)
+
+# >> Menampilkan koefisien (mana yang bikin dia positif atau negatif)
+# coefficients = model.coef_[0]
+# feature_importance = pd.DataFrame({"Fitur":x.columns,"Koefisiensi":coefficients})
+
+# >> agak susah ngejelasinnya tapi ini bisa ngecheck apakah model yakin dalam mengambil keputusan. bisa dilihat dengan membandingkan kedua nilai.
+# jika hampir sama maka model tidak yakin sebaliknya jika jauh maka model yakin dengan keputusanya
+# y_props = model.predict_proba(x_test)
+# print(y_props)
 
 # >> Menampilkan confusion matrix
-print("Confusion Matrix:")
-print(confusion_matrix(y_test, y_pred))
+# confusion_matrix(y_test, y_pred)
 
 # >> Menampilkan laporan klasifikasi (precision, recall, f1-score)
-print("Classification Report:")
-print(classification_report(y_test, y_pred))
+# classification_report(y_test, y_pred)
 
+# ========================================
+# BUILD MODEL
+# ========================================
 
+# >> BUILD supaya enggak usah dilatih lagi
+# jb.dump(model, "accident_prediction_model.pkl")
 
+# >> pemakaian model yang sudah dibuild
+# loaded_model = jb.load('logistic_model.pkl')
 
