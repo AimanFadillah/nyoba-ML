@@ -127,8 +127,8 @@ model.fit(x_train,y_train)
 
 # >> agak susah ngejelasinnya tapi ini bisa ngecheck apakah model yakin dalam mengambil keputusan. bisa dilihat dengan membandingkan kedua nilai.
 # jika hampir sama maka model tidak yakin sebaliknya jika jauh maka model yakin dengan keputusanya
-# y_props = model.predict_proba(x_test)
-# print(y_props)
+y_props = model.predict_proba(x_test)
+print(y_props[:,1][0] * 100)
 
 # >> Menampilkan confusion matrix
 # confusion_matrix(y_test, y_pred)
