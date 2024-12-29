@@ -12,8 +12,6 @@ dataset = pd.get_dummies(dataset, columns=["gender", "smoking_history"])
 columns_to_scale = ["blood_glucose_level", "HbA1c_level", "bmi", "age"]
 dataset[columns_to_scale] = scaler.fit_transform(dataset[columns_to_scale])
 
-print(dataset.head())
-
 x = dataset.drop("diabetes", axis=1)
 y = dataset["diabetes"]
 
@@ -44,8 +42,6 @@ def get_user_input():
     input_data = input_data.reindex(columns=x.columns, fill_value=0)
 
     input_data[columns_to_scale] = scaler.transform(input_data[columns_to_scale])
-
-    print(input_data.head())
 
     return input_data
 
