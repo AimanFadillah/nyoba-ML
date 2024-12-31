@@ -78,7 +78,7 @@ bytearray = bytearray(1)
 memoryview = memoryview(bytes(5))
 
 
-print(memoryview)
+# print(memoryview)
 
 # print(complex)
 # print(complex.imag)
@@ -86,3 +86,18 @@ print(memoryview)
 
 # print(list[0])
 
+def generateNumber () :
+    i = 0
+    while i < 100:
+        i += 1
+        yield i
+    else:
+        yield 100
+
+angka = generateNumber()
+print(next(angka))
+print(next(angka))
+print(next(angka))
+print(next(angka))
+print(next(angka))
+print(next(angka))
