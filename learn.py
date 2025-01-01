@@ -95,9 +95,13 @@ def generateNumber () :
         yield 100
 
 angka = generateNumber()
-print(next(angka))
-print(next(angka))
-print(next(angka))
-print(next(angka))
-print(next(angka))
-print(next(angka))
+# print(next(angka))
+# print(next(angka))
+# print(next(angka))
+# print(next(angka))
+# print(next(angka))
+# print(next(angka))
+
+x = lambda a ,b : a * b
+
+# print(x(11,2))
