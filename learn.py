@@ -116,3 +116,53 @@ result = x(5,3)
 # if result > 10 : print("besar dari 10")
 # print("lebih kecil dari 10") if result < 10 else print("sama dengan 10")
 
+# i = 0
+# while i < 100:
+#     if i == 10:
+#         print("sudah sampe angka 10")
+#         break
+#     i += 1
+
+
+# fruits = ["apple","banana","mangga"]
+# text = "ini kalimat"
+
+# for fruit in text:
+#     print(fruit)
+
+# for index in range(8,10):
+#     print(index)
+
+# for index in range(0,10,2):
+#     print(index)
+# else:
+#     print("beres cuy, edan ada else di for")
+
+# def myfun(nama = "steven"):
+#     print("hai ",nama)
+
+# myfun("budi")
+
+# def myfun(*name):
+#     print("nama pertama",name[1])
+
+# myfun("budi","joko","dodo")
+
+# def myfun (*,nama,kelas):
+#     print(nama)
+#     print(kelas)
+
+# myfun("budi","12")
+
+# def myfun (nama,*,kelas,umur,alamat):
+#     print(nama)
+#     print(kelas)
+#     print(umur)
+#     print(alamat)
+
+# myfun("budi",kelas="12",umur="12",alamat="jakarta")
+
+# def myfun(**bebas):
+#     print("hai nama kamu adalah,",bebas["nama"]," dan umur kamu adalah ",bebas["umur"])
+
+# myfun(nama="budi",umur="12")
