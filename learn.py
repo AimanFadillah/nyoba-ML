@@ -104,4 +104,15 @@ angka = generateNumber()
 
 x = lambda a ,b : a * b
 
-# print(x(11,2))
+result = x(5,3)
+
+# if result > 10:
+#     print("besar dari 10")
+# elif result > 10:
+#     print("kurang dari 10")
+# else:
+#     print("sama dengan 10")
+
+# if result > 10 : print("besar dari 10")
+# print("lebih kecil dari 10") if result < 10 else print("sama dengan 10")
+
