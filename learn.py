@@ -166,3 +166,24 @@ result = x(5,3)
 #     print("hai nama kamu adalah,",bebas["nama"]," dan umur kamu adalah ",bebas["umur"])
 
 # myfun(nama="budi",umur="12")
+
+class myClass:
+    x = 10
+    nama = "steven"
+    umur = "12"
+
+    def __init__(self,nama,umur):
+        self.nama = nama
+        self.kelas = umur
+
+    def __str__(self):
+        return "nama saya adalah "+self.nama+" dan umur saya adalah "+self.umur
+
+    def get_nama (self):
+        return self.nama
+    
+testclass = myClass("aiman","18")
+testclass.x = 20
+print(testclass.x)
+del testclass.x
+del testclass
